@@ -56,13 +56,15 @@ Linux命令 空格 [参数选项] 空格 文件/目录
 
 #### 1.pwd             #查看当前所在的路径 print working directory
 
-    [root@mosiy ~]# pwd
-    /root           # 默认的出生地在家里面/目录 root目录
+```bash
+[root@mosiy ~]# pwd
+/root           # 默认的出生地在家里面/目录 root目录
+```
 
 #### 2.cd                 #切换目录  change directory
 
-           Tip: Linux系统中目录结尾可以加/ 也可以不加
-           如果使用tab键 出来的结果带/ 表示是一个目录  如果不带/ 表示是一个普通文件
+ Tip: Linux系统中目录结尾可以加/ 也可以不加
+       如果使用tab键 出来的结果带/ 表示是一个目录  如果不带/ 表示是一个普通文件      
 
 #### 3.回到家目录(三种方法)
 
@@ -83,60 +85,68 @@ Linux命令 空格 [参数选项] 空格 文件/目录
 
 #### 5.ls    #显示文件 查看文件或者目录是否存在   list
 
-    -l  # 显示详细信息
-    
-    -a  # 显示隐藏的文件或目录     all所有
+```bash
+-l  # 显示详细信息
+
+-a  # 显示隐藏的文件或目录     all所有
+```
 
 #### 6.touch   #创建普通文件 如果文件存在则只修改文件的时间 不会影响文件的内容
 
 语法结构：
 
-    touch file                   #在当前位置创建普通文件
-    touch file1 file2 filen      #一次性创建多个文件
-    touch /etc/NJZ               #在指定的目录下创建NJZ目录  
-     也可以配合 .. 来使用：
-      [root@mosiy NJZ]# touch ../mosssiy.txt
-      
-    注意: 在目录下创建普通文件，目录必须存在的，不支持递归创建
-    touch test/test1/test2/a.txt  # test/test1/test2 三个目录必须存在
+```bash
+touch file                   #在当前位置创建普通文件
+touch file1 file2 filen      #一次性创建多个文件
+touch /etc/NJZ               #在指定的目录下创建NJZ目录  
+ 也可以配合 .. 来使用：
+  [root@mosiy NJZ]# touch ../mosssiy.txt
+  
+注意: 在目录下创建普通文件，目录必须存在的，不支持递归创建
+touch test/test1/test2/a.txt  # test/test1/test2 三个目录必须存在
+```
 
 
 #### 7.mkdir   #创建目录  make directory
 
 语法结构：
 
-    mkdir 目录名称       # 创建单个目录
-    mkdir dir1  dir2    # 创建多个目录
-    mkdir /opt/目录名称   # 指定在某个目录下创建
-                    -p   # 递归创建目录
-                    
-    example：[root@mosiy ~]# mkdir -p abc/111/222
-             [root@mosiy ~]# ll abc/111/
-             total 0
-             drwxr-xr-x 2 root root 6 Jun 17 22:32 222
+```bash
+mkdir 目录名称       # 创建单个目录
+mkdir dir1  dir2    # 创建多个目录
+mkdir /opt/目录名称   # 指定在某个目录下创建
+                -p   # 递归创建目录
+                
+example：[root@mosiy ~]# mkdir -p abc/111/222
+         [root@mosiy ~]# ll abc/111/
+         total 0
+         drwxr-xr-x 2 root root 6 Jun 17 22:32 222
+```
 
 **注意: 创建目录可以递归，创建文件不可以递归**
 
 #### 8.tree   #数型结构显示目录
 
-            -L 1  #只显示1级目录
-            -L 2  #只显示2级目录
-    e.g.[root@mosiy ~]# tree -L 1
-    .
-    ├── abc
-    ├── mosssiy.txt
-    └── NJZ
-    
-    2 directories, 1 file
-    [root@mosiy ~]# tree -L 2
-    .
-    ├── abc
-    │   └── 111
-    ├── mosssiy.txt
-    └── NJZ
-        └── NEWJEANS
-    
-    3 directories, 2 files
+```bash
+        -L 1  #只显示1级目录
+        -L 2  #只显示2级目录
+e.g.[root@mosiy ~]# tree -L 1
+.
+├── abc
+├── mosssiy.txt
+└── NJZ
+
+2 directories, 1 file
+[root@mosiy ~]# tree -L 2
+.
+├── abc
+│   └── 111
+├── mosssiy.txt
+└── NJZ
+    └── NEWJEANS
+
+3 directories, 2 files
+```
 
 **容易出现的问题**
 
@@ -154,7 +164,9 @@ Linux命令 空格 [参数选项] 空格 文件/目录
 
 #### 9.cat    #查看文件的内容，合并多个文件
 
-        -n  # 显示行号 number
+```bash
+    -n  # 显示行号 number
+```
 
 语法结构:
                 cat 文件
@@ -162,9 +174,13 @@ Linux命令 空格 [参数选项] 空格 文件/目录
                 cat file1 file2 
 案例1.查看/etc/hosts文件中的内容
 
-`[root@mosiy ~]# cat /etc/hosts
+```bash
+[root@mosiy ~]# cat /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6`
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+```
+
+
 
 e.g.查看文件内容:*查看家目录下njz内容*
 
@@ -179,9 +195,11 @@ love
 
 e.g.显示行号实际操作:
 
-`[root@mosiy ~]# cat -n /etc/hosts
+```bash
+[root@mosiy ~]# cat -n /etc/hosts
      1    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-     2    ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6`
+     2    ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+```
 
 #### 10.clear   #清屏
 
@@ -200,3 +218,4 @@ e.g.显示行号实际操作:
 6.Ctrl+u            #剪切光标所在到行首
 
 7.Ctrl+y            #粘贴剪切的内容
+
