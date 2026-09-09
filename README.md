@@ -1,2 +1,2 @@
 # Study-Process
-该仓库记录学习计算机各种软件的自学过程
+This repository records the self-learning process of learning various computer software.
